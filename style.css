@@ -327,6 +327,19 @@ body::before {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
+@media (max-width: 768px) {
+    .hero {
+        align-items: center;
+        justify-content: center;
+        padding-top: clamp(7rem, 15vh, 10rem);
+        padding-bottom: clamp(var(--space-section), 10vh, 6rem);
+    }
+
+    .hero__lede {
+        display: none;
+    }
+}
+
 @media (max-width: 480px) {
     .site-header {
         flex-direction: column;
@@ -336,6 +349,11 @@ body::before {
 
     .site-nav {
         justify-content: center;
+    }
+
+    .hero {
+        padding-top: clamp(7.75rem, 18vh, 11rem);
+        padding-bottom: clamp(var(--space-section), 12vh, 6.5rem);
     }
 }
 

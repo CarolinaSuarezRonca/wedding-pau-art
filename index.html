@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pau y Arturo — Save the Date</title>
+        <meta name="description" content="Save the date — Pau y Arturo. Punta del Este, 27 de febrero de 2027.">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -11,10 +12,12 @@
     </head>
     <body>
         <header class="site-header">
-            <p class="site-tag">Pau y Arturo</p>
+            <a href="index.html" class="site-tag">Pau y Arturo</a>
             <nav class="site-nav" aria-label="Principal">
                 <a href="#hero">Inicio</a>
                 <a href="#about">Historia</a>
+                <a href="#journey">Recorrido</a>
+                <a href="invitados-espana.html">Invitados desde España</a>
                 <a href="#contact">Contacto</a>
             </nav>
         </header>
@@ -29,6 +32,7 @@
                     <a href="#contact" class="cta">Escribinos</a>
                 </div>
             </section>
+
             <section id="about" class="panel panel--cream">
                 <div class="about-layout">
                     <figure class="photo-card">
@@ -47,10 +51,107 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Journey: chapel → road → reception salon -->
+            <section id="journey" class="panel panel--paper journey" aria-labelledby="journey-heading">
+                <div class="journey__wrap">
+                    <header class="section-intro">
+                        <p class="section-intro__kicker">El día de la boda</p>
+                        <h2 id="journey-heading">De la ceremonia a la recepción</h2>
+                        <p class="section-intro__lede">Un recorrido corto y tranquilo entre la capilla y el salón, con vistas al mar.</p>
+                    </header>
+
+                    <div class="journey__scene" aria-label="Recorrido de la capilla al salón">
+                        <article class="journey__stop journey__stop--chapel">
+                            <figure class="journey__figure">
+                                <img
+                                    src="assets/chapel.png"
+                                    alt="Acuarela de la Capilla San Rafael"
+                                    width="448"
+                                    height="560"
+                                    loading="lazy"
+                                    decoding="async"
+                                >
+                            </figure>
+                            <div class="journey__label">
+                                <h3 class="journey__place">Capilla San Rafael</h3>
+                                <p class="journey__time">
+                                    <span class="journey__time-label">Llegada sugerida</span>
+                                    <time datetime="2027-02-27T16:30">16:30</time>
+                                </p>
+                                <p class="journey__detail">Ceremonia · <time datetime="2027-02-27T17:00">17:00</time></p>
+                            </div>
+                        </article>
+
+                        <div class="journey__path journey__path--route" aria-hidden="true">
+                            <svg class="journey__path-svg journey__path-svg--desktop" viewBox="0 0 400 100" preserveAspectRatio="xMidYMid meet">
+                                <path
+                                    class="journey__route"
+                                    d="M 4 82 C 4 42, 98 12, 200 38 C 302 64, 396 34, 396 10"
+                                    fill="none"
+                                    stroke="#1a1a1a"
+                                    stroke-width="7"
+                                    stroke-linecap="butt"
+                                    stroke-dasharray="20 16"
+                                />
+                            </svg>
+                            <svg class="journey__path-svg journey__path-svg--mobile" viewBox="0 0 80 200" preserveAspectRatio="xMidYMid meet">
+                                <path
+                                    class="journey__route"
+                                    d="M 40 6 C 14 48, 14 108, 40 138 C 66 168, 66 188, 40 194"
+                                    fill="none"
+                                    stroke="#1a1a1a"
+                                    stroke-width="7"
+                                    stroke-linecap="butt"
+                                    stroke-dasharray="20 16"
+                                />
+                            </svg>
+                            <p class="journey__drive-note">
+                                10 minutos en coche
+                                <span class="journey__drive-sub">10-minute drive between locations</span>
+                            </p>
+                        </div>
+
+                        <article class="journey__stop journey__stop--salon">
+                            <figure class="journey__figure">
+                                <img
+                                    src="assets/salon.png"
+                                    alt="Acuarela de Muelle 3, salón de recepción"
+                                    width="448"
+                                    height="560"
+                                    loading="lazy"
+                                    decoding="async"
+                                >
+                            </figure>
+                            <div class="journey__label">
+                                <h3 class="journey__place">Muelle 3</h3>
+                                <p class="journey__time">
+                                    <span class="journey__time-label">Inicio recepción</span>
+                                    <time datetime="2027-02-27T18:30">18:30</time>
+                                </p>
+                                <p class="journey__detail">Cena y celebración</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel panel--cream panel--invite" aria-labelledby="invite-spain-heading">
+                <div class="panel__content panel__content--invite">
+                    <p class="section-intro__kicker">Para quienes vienen de lejos</p>
+                    <h2 id="invite-spain-heading">¿Vienes desde España?</h2>
+                    <p>Guía de viaje, horarios del fin de semana, mapas y recomendaciones para Punta del Este.</p>
+                    <a href="invitados-espana.html" class="cta">Invitados desde España</a>
+                </div>
+            </section>
+
             <section id="contact" class="panel panel--mist">
                 <div class="panel__content">
                     <h2>Contacto</h2>
-                    <p>Para cualquier consulta, escribinos cuando quieras.</p>
+                    <p>Para cualquier consulta — viaje, alojamiento o detalles del día — escribinos cuando quieras.</p>
+                    <p class="contact-actions">
+                        <a href="mailto:hola@paulayarturo.com" class="cta cta--light">Email</a>
+                    </p>
                 </div>
             </section>
         </main>

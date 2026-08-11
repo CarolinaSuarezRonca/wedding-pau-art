@@ -36,6 +36,10 @@ html {
     scroll-behavior: smooth;
 }
 
+[id] {
+    scroll-margin-top: clamp(4.5rem, 10vw, 6rem);
+}
+
 body {
     margin: 0;
     font-family: var(--font-serif-body);
@@ -59,22 +63,21 @@ body::before {
 }
 
 .site-header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 10;
+    z-index: 100;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
     padding: clamp(1rem, 4vw, 1.75rem) clamp(1.25rem, 5vw, 2.5rem);
-    background: linear-gradient(
-        180deg,
-        rgba(247, 244, 239, 0.95) 0%,
-        rgba(247, 244, 239, 0) 100%
-    );
+    background: rgba(247, 244, 239, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 16px rgba(115, 115, 145, 0.08);
 }
 
 .site-tag {
@@ -95,26 +98,20 @@ a.site-tag:focus-visible {
     outline: none;
 }
 
-/* Subpage (Invitados desde España) */
+/* Subpage (Invitados del exterior) */
 .page-sub .site-header--sub {
-    position: relative;
-    background: linear-gradient(
-        180deg,
-        var(--cream) 0%,
-        rgba(247, 244, 239, 0.92) 70%,
-        transparent 100%
-    );
+    position: fixed;
 }
 
-.spain-page {
-    padding-top: clamp(5rem, 12vw, 6.5rem);
+.exterior-page {
+    padding-top: clamp(8.5rem, 16vw, 10.5rem);
 }
 
-.spain-page__intro {
+.exterior-page__intro {
     margin-bottom: clamp(2rem, 5vw, 2.75rem);
 }
 
-.spain-page__intro h1 {
+.exterior-page__intro h1 {
     margin: 0;
     font-family: var(--font-serif-display);
     font-size: clamp(1.75rem, 4.5vw, 2.25rem);
@@ -122,7 +119,7 @@ a.site-tag:focus-visible {
     letter-spacing: 0.04em;
 }
 
-.spain-page__back {
+.exterior-page__back {
     margin: 2.5rem 0 0;
     text-align: center;
 }
@@ -148,8 +145,8 @@ a.site-tag:focus-visible {
     font-weight: 600;
 }
 
-.panel__content--invite p {
-    margin: 0 0 1.5rem;
+.panel--invite .panel__content--invite p {
+    margin: 0 0 2rem;
     font-size: 1.15rem;
     font-weight: 300;
     color: var(--text-soft);
@@ -257,13 +254,65 @@ a.site-tag:focus-visible {
 .hero__place {
     margin: 0 0 1.75rem;
     font-family: var(--font-serif-body);
-    font-size: clamp(1.1rem, 3vw, 1.35rem);
+    font-size: clamp(1.8rem, 4.25rem, 1.5rem);
     font-style: italic;
     font-weight: 300;
     letter-spacing: 0.08em;
     text-transform: lowercase;
     color: var(--white);
     text-shadow: 0 1px 8px rgba(115, 115, 145, 0.35);
+}
+
+.countdown__intro {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-serif-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-shadow: 0 1px 6px rgba(115, 115, 145, 0.3);
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 4vw, 2.25rem);
+    margin: 0 0 2rem;
+}
+
+.hero__cta {
+    position: relative;
+    top: clamp(1.5rem, 5vw, 3rem);
+}
+
+.countdown__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 3.25rem;
+}
+
+.countdown__value {
+    font-family: var(--font-serif-display);
+    font-size: clamp(1.5rem, 5vw, 2.25rem);
+    font-weight: 600;
+    line-height: 1;
+    color: var(--white);
+    text-shadow: 0 1px 8px rgba(115, 115, 145, 0.35);
+    font-variant-numeric: tabular-nums;
+}
+
+.countdown__label {
+    margin-top: 0.4rem;
+    font-family: var(--font-serif-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--white);
+    opacity: 0.85;
+    text-shadow: 0 1px 6px rgba(115, 115, 145, 0.3);
 }
 
 .hero__lede {
@@ -458,6 +507,24 @@ a.site-tag:focus-visible {
         padding-top: clamp(7.75rem, 18vh, 11rem);
         padding-bottom: clamp(var(--space-section), 12vh, 6.5rem);
     }
+
+    .exterior-page {
+        padding-top: clamp(9.5rem, 22vh, 13rem);
+    }
+
+    [id] {
+        scroll-margin-top: clamp(9.5rem, 22vh, 13rem);
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .exterior-page {
+        padding-top: clamp(8.5rem, 18vh, 10.5rem);
+    }
+
+    [id] {
+        scroll-margin-top: clamp(8.5rem, 18vh, 10.5rem);
+    }
 }
 
 /* —— Section intros —— */
@@ -496,14 +563,6 @@ a.site-tag:focus-visible {
     color: var(--text-soft);
 }
 
-.section-intro__lede--bilingual span {
-    display: block;
-    margin-top: 0.35rem;
-    font-size: 0.95em;
-    font-style: italic;
-    opacity: 0.88;
-}
-
 /* —— Journey: chapel → road → salon —— */
 .journey__wrap {
     max-width: 58rem;
@@ -529,6 +588,11 @@ a.site-tag:focus-visible {
 .journey__figure {
     margin: 0;
     width: min(16rem, 78vw);
+    aspect-ratio: 9 / 10;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: transform 0.4s ease;
     background: transparent;
 }
@@ -537,7 +601,10 @@ a.site-tag:focus-visible {
     display: block;
     width: 100%;
     height: auto;
-    object-fit: contain;
+}
+
+.journey__stop--salon .journey__figure {
+    align-items: flex-start;
 }
 
 .journey__place {
@@ -593,50 +660,60 @@ a.site-tag:focus-visible {
     display: none;
     width: 4rem;
     margin: 0 auto;
-    min-height: 9rem;
+    aspect-ratio: 2 / 5;
 }
 
 .journey__path-svg--desktop {
     display: block;
     width: 100%;
-    min-height: 5rem;
+    aspect-ratio: 4 / 1;
     margin: 0;
 }
 
 .journey__route {
-    animation: route-dash-march 1.1s linear infinite;
+    stroke: var(--pier-tan);
+    stroke-width: 4;
+    stroke-linecap: round;
+    animation: route-dash-march 1.4s linear infinite;
 }
 
 @keyframes route-dash-march {
     to {
-        stroke-dashoffset: -72;
+        stroke-dashoffset: -52;
     }
 }
 
 .journey__drive-note {
-    margin: 0.35rem 0 0;
-    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: max-content;
+    margin: 0.5rem 0 0;
+    padding: 0.4rem 0.95rem;
+    white-space: nowrap;
     font-family: var(--font-serif-display);
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--text-primary);
+    background: var(--white);
+    border: 1px solid rgba(201, 187, 168, 0.5);
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(115, 115, 145, 0.14);
 }
 
-.journey__drive-sub {
-    display: block;
-    margin-top: 0.2rem;
-    font-family: var(--font-serif-body);
-    font-size: 0.9rem;
-    font-weight: 300;
-    font-style: italic;
-    letter-spacing: 0;
-    color: var(--text-soft);
+.journey__drive-icon {
+    font-size: 0.95rem;
+    line-height: 1;
 }
 
 @media (min-width: 768px) {
     .journey__scene {
-        grid-template-columns: minmax(11rem, 1fr) minmax(6rem, 9rem) minmax(11rem, 1fr);
+        grid-template-columns: minmax(11rem, 1fr) minmax(8rem, 12rem) minmax(11rem, 1fr);
         gap: 0;
         align-items: center;
         justify-content: center;
@@ -652,13 +729,9 @@ a.site-tag:focus-visible {
 
     .journey__path {
         align-self: center;
-        max-width: 8.5rem;
+        max-width: 12rem;
         margin: 0;
         padding-bottom: 2.25rem;
-    }
-
-    .journey__path-svg--desktop {
-        min-height: 5rem;
     }
 
     .journey__figure {
@@ -671,7 +744,6 @@ a.site-tag:focus-visible {
         bottom: 0;
         transform: translateX(-50%);
         width: max-content;
-        max-width: 10rem;
         margin: 0;
     }
 }
@@ -683,6 +755,7 @@ a.site-tag:focus-visible {
 
     .journey__path-svg--mobile {
         display: block;
+        aspect-ratio: 2 / 3;
     }
 
     .journey__path {
@@ -706,22 +779,22 @@ a.site-tag:focus-visible {
     }
 }
 
-/* —— Spain guests section —— */
-.spain-guests__wrap {
-    max-width: 52rem;
+/* —— exterior guests section —— */
+.exterior-guests__wrap {
+    max-width: 66rem;
     margin: 0 auto;
 }
 
-.spain-block {
+.exterior-block {
     margin-bottom: clamp(2.5rem, 6vw, 3.5rem);
 }
 
-.spain-block:last-child {
+.exterior-block:last-child {
     margin-bottom: 0;
 }
 
-.spain-block__title,
-.spain-block h2.spain-block__title {
+.exterior-block__title,
+.exterior-block h2.exterior-block__title {
     display: flex;
     align-items: center;
     gap: 0.6rem;
@@ -732,14 +805,14 @@ a.site-tag:focus-visible {
     letter-spacing: 0.04em;
 }
 
-.spain-block__title .icon {
+.exterior-block__title .icon {
     width: 1.35rem;
     height: 1.35rem;
     flex-shrink: 0;
     color: var(--pier-tan);
 }
 
-.spain-block__note {
+.exterior-block__note {
     margin: -0.5rem 0 1.25rem;
     font-size: 1rem;
     font-style: italic;
@@ -806,6 +879,20 @@ a.site-tag:focus-visible {
     margin-bottom: 0;
 }
 
+.info-list a {
+    color: var(--text-primary);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--pier-tan);
+    transition: opacity 0.2s ease;
+}
+
+.info-list a:hover,
+.info-list a:focus-visible {
+    opacity: 0.7;
+    outline: none;
+}
+
 @media (min-width: 640px) {
     .info-cards {
         grid-template-columns: repeat(2, 1fr);
@@ -813,6 +900,308 @@ a.site-tag:focus-visible {
 
     .info-card--wide {
         grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 1024px) {
+    .info-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    #exterior-travel .info-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Guide subblocks (beaches, stay, plans, car) */
+.exterior-subblock {
+    margin-bottom: clamp(1.75rem, 4vw, 2.25rem);
+}
+
+.exterior-subblock:last-child {
+    margin-bottom: 0;
+}
+
+.exterior-subblock__title {
+    margin: 0 0 1rem;
+    font-family: var(--font-serif-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--text-primary);
+}
+
+.info-card__cta {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--pier-tan);
+    transition: opacity 0.2s ease;
+}
+
+.info-card__cta:hover,
+.info-card__cta:focus-visible {
+    opacity: 0.7;
+    outline: none;
+}
+
+/* Rank list (top 5 beaches) */
+.rank-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+.rank-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--white);
+    border: 1px solid rgba(201, 187, 168, 0.4);
+    border-radius: 2px;
+    box-shadow: 0 4px 20px rgba(115, 115, 145, 0.06);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.rank-item:hover {
+    box-shadow: 0 8px 28px rgba(115, 115, 145, 0.1);
+    transform: translateY(-2px);
+}
+
+.rank-item__num {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.15rem;
+    height: 2.15rem;
+    font-family: var(--font-serif-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--text-primary) 0%, #5c5c78 100%);
+    border-radius: 50%;
+}
+
+.rank-item__body h4 {
+    margin: 0;
+    font-family: var(--font-serif-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.rank-item__body p {
+    margin: 0.15rem 0 0;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-soft);
+}
+
+.rank-item__map {
+    display: inline-block;
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--pier-tan);
+    transition: opacity 0.2s ease;
+}
+
+.rank-item__map:hover,
+.rank-item__map:focus-visible {
+    opacity: 0.7;
+    outline: none;
+}
+
+@media (min-width: 560px) {
+    .rank-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 960px) {
+    .rank-list {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .rank-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+        padding: 1.25rem 0.85rem;
+    }
+}
+
+/* Plan grid (things to do) */
+.exterior-subblock__links {
+    margin: -0.5rem 0 1rem;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--text-soft);
+}
+
+.exterior-subblock__links a {
+    color: var(--text-primary);
+    font-style: normal;
+    text-decoration: none;
+    border-bottom: 1px solid var(--pier-tan);
+}
+
+.exterior-subblock__links a:hover,
+.exterior-subblock__links a:focus-visible {
+    opacity: 0.7;
+    outline: none;
+}
+
+.plan-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.plan-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid rgba(201, 187, 168, 0.35);
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(115, 115, 145, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(115, 115, 145, 0.1);
+}
+
+.plan-card--wide {
+    grid-column: 1 / -1;
+}
+
+.plan-card--horizontal {
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.plan-card--horizontal .plan-card__figure {
+    flex: 0 0 min(16rem, 40%);
+    aspect-ratio: auto;
+}
+
+.plan-card--horizontal .plan-card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+@media (max-width: 560px) {
+    .plan-card--horizontal {
+        flex-direction: column;
+    }
+
+    .plan-card--horizontal .plan-card__figure {
+        flex: none;
+        aspect-ratio: 4 / 3;
+    }
+}
+
+.plan-card__figure {
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    background: var(--sky-mist);
+}
+
+.plan-card__figure img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.plan-card__body {
+    padding: 0.9rem 1rem 1rem;
+}
+
+.plan-card--no-image .plan-card__body {
+    padding-top: 1.1rem;
+}
+
+.plan-card__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.85rem;
+    font-family: var(--font-serif-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.plan-card__emoji {
+    font-size: 1.2rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.plan-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.85rem;
+}
+
+.plan-card__action {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--pier-tan);
+    transition: opacity 0.2s ease;
+}
+
+.plan-card__action:hover,
+.plan-card__action:focus-visible {
+    opacity: 0.7;
+    outline: none;
+}
+
+.plan-card__action--primary {
+    padding: 0.35rem 0.8rem;
+    color: var(--white);
+    background: var(--text-primary);
+    border-radius: 999px;
+    border-bottom: none;
+}
+
+.plan-card__action--primary:hover,
+.plan-card__action--primary:focus-visible {
+    opacity: 0.85;
+}
+
+@media (min-width: 560px) {
+    .plan-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .plan-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -932,81 +1321,10 @@ a.site-tag:focus-visible {
     outline: none;
 }
 
-.hotel-note {
-    padding: 1.15rem 1.25rem;
-    background: linear-gradient(135deg, var(--sky-mist) 0%, var(--sea-pale) 100%);
-    border-radius: 2px;
-    border: 1px solid rgba(184, 204, 217, 0.5);
-}
-
-.hotel-note h3,
-.hotel-note h4 {
-    margin: 0 0 0.4rem;
-    font-family: var(--font-serif-display);
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.hotel-note p {
-    margin: 0;
-    font-size: 1.05rem;
-    font-weight: 300;
-    color: var(--text-soft);
-}
-
 @media (min-width: 640px) {
     .map-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-}
-
-/* Link cards */
-.link-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
-    gap: 0.85rem;
-}
-
-.link-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.65rem;
-    padding: 1rem 1.1rem;
-    text-decoration: none;
-    color: var(--text-primary);
-    background: var(--white);
-    border: 1px solid rgba(201, 187, 168, 0.4);
-    border-radius: 2px;
-    box-shadow: 0 2px 12px rgba(115, 115, 145, 0.06);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.link-card:hover,
-.link-card:focus-visible {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(115, 115, 145, 0.12);
-    border-color: var(--pier-tan);
-    outline: none;
-}
-
-.link-card__icon {
-    font-size: 1.25rem;
-    line-height: 1;
-}
-
-.link-card__text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    font-size: 0.85rem;
-    color: var(--text-soft);
-}
-
-.link-card__text strong {
-    font-family: var(--font-serif-display);
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text-primary);
 }
 
 /* Local recommendations */
@@ -1063,9 +1381,44 @@ a.site-tag:focus-visible {
     }
 }
 
+.local-grid--compact {
+    max-width: 34rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 520px) {
+    .local-grid--compact {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .local-grid--compact {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* Contact */
-.contact-actions {
-    margin-top: 1.5rem;
+.panel--mist .contact-actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.85rem;
+}
+
+.cta--whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.cta__icon {
+    width: 1.05rem;
+    height: 1.05rem;
+    flex-shrink: 0;
+    color: var(--text-soft);
+    fill: currentColor;
 }
 
 .cta--light {
@@ -1081,10 +1434,6 @@ a.site-tag:focus-visible {
 }
 
 /* Nav: more links on small screens */
-.site-nav a[href="#spain-guests"] {
-    letter-spacing: 0.02em;
-}
-
 @media (max-width: 640px) {
     .site-nav {
         gap: 0.65rem 1rem;
@@ -1103,8 +1452,9 @@ a.site-tag:focus-visible {
 
     .cta,
     .info-card,
-    .link-card,
     .local-card,
+    .rank-item,
+    .plan-card,
     .journey__figure {
         transition: none;
     }
@@ -1112,7 +1462,8 @@ a.site-tag:focus-visible {
     .cta:hover,
     .cta:focus-visible,
     .info-card:hover,
-    .link-card:hover,
+    .rank-item:hover,
+    .plan-card:hover,
     .journey__stop:hover .journey__figure {
         transform: none;
     }

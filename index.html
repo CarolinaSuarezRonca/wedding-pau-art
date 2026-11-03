@@ -7,8 +7,8 @@
         <meta name="description" content="Save the date — Pau y Arturo. Punta del Este, 27 de febrero de 2027.">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css?v=2">
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css?v=3">
     </head>
     <body>
         <header class="site-header">
@@ -16,6 +16,7 @@
             <nav class="site-nav" aria-label="Principal">
                 <a href="#journey">Recorrido</a>
                 <a href="#invite-exterior">Invitados del exterior</a>
+                <a href="#rsvp">Confirmar asistencia</a>
                 <a href="#contact">Contacto</a>
             </nav>
         </header>
@@ -25,7 +26,7 @@
                     <p class="hero__kicker">Save the date</p>
                     <p class="hero__date">27 · 02 · 27</p>
                     <h1 class="hero__names">Pau y Arturo</h1>
-                    <p class="hero__place">punta del este</p>
+                    <p class="hero__place">Punta del Este</p>
 
                     <p class="countdown__intro">Faltan:</p>
                     <div class="countdown" id="countdown" aria-label="Cuenta regresiva para la boda">
@@ -55,7 +56,7 @@
                 <div class="about-layout">
                     <figure class="photo-card">
                         <img
-                            src="assets/pau-art.jpg"
+                            src="assets/pau-art-playa.jpg"
                             alt="Pau y Arturo en la playa"
                             width="768"
                             height="1024"
@@ -153,8 +154,19 @@
                 <div class="panel__content panel__content--invite">
                     <p class="section-intro__kicker">Para quienes vienen de lejos</p>
                     <h2 id="invite-exterior-heading">¿Vienes desde fuera?</h2>
-                    <p>Guía de viaje, horarios del fin de semana, mapas y recomendaciones para Punta del Este.</p>
+                    <p>Guía de viaje, horarios del día, mapas y recomendaciones para Montevideo y Punta del Este.</p>
                     <a href="invitados-exterior.html" class="cta">Invitados del exterior</a>
+                </div>
+            </section>
+
+            <section id="rsvp" class="panel panel--paper panel--rsvp" aria-labelledby="rsvp-heading">
+                <div class="panel__content panel__content--rsvp">
+                    <p class="section-intro__kicker">¿Venís?</p>
+                    <h2 id="rsvp-heading">Confirmá tu asistencia</h2>
+                    <p class="rsvp__lede">Nos ayuda muchísimo saber con quién contamos. Completá el formulario, te lleva un minuto.</p>
+                    <!-- TODO: reemplazar por el link real del Google Form -->
+                    <a href="https://forms.gle/PLACEHOLDER" class="cta cta--rsvp" target="_blank" rel="noopener">Confirmar asistencia</a>
+                    <p class="rsvp__note">Una confirmación por persona, por favor.</p>
                 </div>
             </section>
 
